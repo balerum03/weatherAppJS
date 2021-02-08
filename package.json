@@ -1,0 +1,28 @@
+{
+  "name": "weatherAppJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balerum03/weatherAppJS.git"
+  },
+  "keywords": [],
+  "author": "Adan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balerum03/weatherAppJS/issues"
+  },
+  "homepage": "https://github.com/balerum03/weatherAppJS#readme",
+  "devDependencies": {
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
