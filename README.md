@@ -1,1 +1,1 @@
-# weatherAppJS
+# My Weather App using JS
