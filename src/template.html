@@ -6,8 +6,17 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <main>
-        <div></div>
+    <main class="d-flex flex-column">
+        <div class="hello d-flex justify-content-center w-100 mt-5">
+            <input type="text" name="city" id="city_collector" placeholder="e.g.: London" class="">
+            <button type="button" id="city_button" class="btn btn-outline-secondary btn-light ml-2">Find</button>
+        </div>
+        <div class="">
+            <p id="hello"></p>
+            <p class="hello1"></p>
+            <p class="hello2"></p>
+            <img alt="icon" id="weather_icon" class="d-none">
+        </div>
     </main>
 </body>
 </html>
