@@ -8,17 +8,45 @@ const getData = async (api_link) => {
     const myData = await fetch(api_link);
     if (myData.ok) {
         const myDataJSON = await myData.json();
-        document.querySelector('#hello').innerText = myDataJSON.name;
-        const icon = myDataJSON.weather[0].icon;
-        document.querySelector('#weather_icon').src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-        document.querySelector('#weather_icon').classList.remove('d-none');
+        const dataObj = {
+            city: myDataJSON.name,
+            weather: myDataJSON.main.temp,
+            minTemp: myDataJSON.main.temp_min,
+            maxTemp: myDataJSON.main.temp_max,
+            humidity: myDataJSON.main.humidity,
+            feelsLike: myDataJSON.main.feels_like,
+            weatherDesc: myDataJSON.weather[0].description,
+            icon: myDataJSON.weather[0].icon,
+            wind: myDataJSON.wind.speed,
+            pressure: myDataJSON.main.pressure
+        };
+        return dataObj;
     }else {
         throw Error(404);
     }
 };
 
-button.addEventListener('click', (e) => {
+button.addEventListener('click', async (e) => {
     const city = document.querySelector('#city_collector').value;
     const api_link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
-    getData(api_link);
+    const data = await getData(api_link);
+    dataDisplay(data);
 })
+
+ const dataDisplay = (data) => {
+    document.querySelector('#city_name').innerText = data.city;
+    document.querySelector('#icon').src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+    document.querySelector('#tempP').innerText = `${(data.weather-273.15).toFixed(2)} °C`;
+    document.querySelector('#descriptionP').innerText = data.weatherDesc;
+    document.querySelector('#wind_speedP').innerText = `Wind Speed: ${data.wind} mph`;
+    document.querySelector('#max_tempP').innerText = `Max Temp: ${(data.maxTemp-273.15).toFixed(2)} °C`;
+    document.querySelector('#min_tempP').innerText = `Min Temp: ${(data.minTemp-273.15).toFixed(2)} °C`;
+    document.querySelector('#feelP').innerText = `Feels Like: ${(data.feelsLike-273.15).toFixed(2)} °C`;
+    document.querySelector('#humidityP').innerText = `Humidity: ${data.humidity}`;
+    document.querySelector('#pressureP').innerText = `Pressure: ${data.pressure}`;
+ }
+
+ (async() => {
+    const defaultData = await getData(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=23f4808ad2b423efacaafda136f02cd6`);
+    dataDisplay(defaultData);
+ })();

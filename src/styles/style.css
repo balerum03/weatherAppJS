@@ -1,5 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+
 body {
     height: 100vh;
-    background: linear-gradient(to top, #ffe59f, #5f77ff);
-    color:white;
+    background: linear-gradient(to bottom, #355C7D, #6C5B7B,#C06C84);
+    color:rgb(35, 86, 128);
+}
+
+.bg-glass {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+}
+
+h1 {
+    background: rgba(255, 255, 255, 0.5);
+    font-family: 'Merriweather', serif;
+}
+
+.main-info {
+    inline-size: 1rem;
+}
+
+.info-container {
+    width: 95%;
 }
