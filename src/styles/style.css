@@ -23,3 +23,8 @@ h1 {
 .info-container {
     width: 95%;
 }
+
+.bg-red-glass {
+    background-color: rgba(250, 0, 0, 0.397);
+    color: white;
+}

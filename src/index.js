@@ -1,28 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/style.css';
 
+const search_bar = document.querySelector('#city_collector');
 const button = document.querySelector('#city_button');
 const api_key = '23f4808ad2b423efacaafda136f02cd6';
 
 const getData = async (api_link) => {
-    const myData = await fetch(api_link);
-    if (myData.ok) {
-        const myDataJSON = await myData.json();
-        const dataObj = {
-            city: myDataJSON.name,
-            weather: myDataJSON.main.temp,
-            minTemp: myDataJSON.main.temp_min,
-            maxTemp: myDataJSON.main.temp_max,
-            humidity: myDataJSON.main.humidity,
-            feelsLike: myDataJSON.main.feels_like,
-            weatherDesc: myDataJSON.weather[0].description,
-            icon: myDataJSON.weather[0].icon,
-            wind: myDataJSON.wind.speed,
-            pressure: myDataJSON.main.pressure
-        };
-        return dataObj;
-    }else {
-        throw Error(404);
+    try {
+        const myData = await fetch(api_link);
+        if (myData.ok) {
+            document.querySelector('#warning-text').innerText = null;
+            const myDataJSON = await myData.json();
+            const dataObj = {
+                city: myDataJSON.name,
+                weather: myDataJSON.main.temp,
+                minTemp: myDataJSON.main.temp_min,
+                maxTemp: myDataJSON.main.temp_max,
+                humidity: myDataJSON.main.humidity,
+                feelsLike: myDataJSON.main.feels_like,
+                weatherDesc: myDataJSON.weather[0].description,
+                icon: myDataJSON.weather[0].icon,
+                wind: myDataJSON.wind.speed,
+                pressure: myDataJSON.main.pressure
+            };
+            return dataObj;
+        }else {
+            throw new Error(404);
+        }
+    }catch(err){
+        document.querySelector('#warning-text').innerText = 'There was a problem while getting the data';
     }
 };
 
@@ -31,6 +37,13 @@ button.addEventListener('click', async (e) => {
     const api_link = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}`;
     const data = await getData(api_link);
     dataDisplay(data);
+})
+
+search_bar.addEventListener('keyup',(e) => {
+    console.log(e);
+    if (e.keyCode === 13){
+        button.click();
+    }
 })
 
  const dataDisplay = (data) => {
@@ -49,4 +62,4 @@ button.addEventListener('click', async (e) => {
  (async() => {
     const defaultData = await getData(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=23f4808ad2b423efacaafda136f02cd6`);
     dataDisplay(defaultData);
- })();
+ })();  
