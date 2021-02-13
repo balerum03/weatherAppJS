@@ -1,0 +1,38 @@
+{
+  "name": "weatherAppJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "webpackWa": "npx webpack --watch",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balerum03/weatherAppJS.git"
+  },
+  "keywords": [],
+  "author": "Adan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balerum03/weatherAppJS/issues"
+  },
+  "homepage": "https://github.com/balerum03/weatherAppJS#readme",
+  "devDependencies": {
+    "babel-eslint": "10.1.x",
+    "css-loader": "^5.0.1",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "html-webpack-plugin": "^5.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
+}
