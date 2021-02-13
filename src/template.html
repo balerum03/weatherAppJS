@@ -6,39 +6,44 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <main class="d-flex flex-column">
-        <div>
+    <main class="d-flex flex-column align-items-center">
+        <div class="w-100">
             <h1 class="d-flex justify-content-center py-2 m-0">Weather Consultation</h1>
             <p class="w-100 bg-red-glass d-flex justify-content-center" id="warning-text"></p>
         </div>
-        <div class="hello d-flex justify-content-center w-100 mt-5">
+        <div class="d-flex justify-content-center w-100 mt-5">
             <input type="text" name="city" id="city_collector" placeholder="e.g.: London" class="">
             <button type="button" id="city_button" class="btn btn-outline-secondary btn-light ml-2">Find</button>
         </div>
-        <div class=" info-container d-flex justify-content-between aling-items-center flex-row mt-5 ml-3">
+        <div class=" info-container d-flex justify-content-between align-items-center flex-row mt-5 ml-3">
             <div class="main-info bg-glass w-25 pl-3 py-2 d-flex justify-content-between">
                 <div>
                     <h3 id="city_name"></h3>
                     <p id="tempP"></p>
+                    <p id="tempPF" class="d-none"></p>
                     <p id="descriptionP"></p>
                 </div>
                 <div>
                     <img alt="weather icon" id="icon">
                 </div>
             </div>
-            <div class="d-flex justify-content-around bg-glass ml-3 w-75 pl-3 py-2">
-                <div class="">
+            <div class="d-flex justify-content-around bg-glass mx-3 w-75 pl-3 py-2">
+                <div>
                     <p id="wind_speedP"></p>
                     <p id="max_tempP"></p>
+                    <p id="max_tempPF" class="d-none"></p>
                     <p id="min_tempP"></p>
+                    <p id="min_tempPF" class="d-none"></p>
                 </div>
                 <div>
                     <p id="feelP"></p>
+                    <p id="feelPF" class="d-none"></p>
                     <p id="humidityP"></p>
                     <p id="pressureP"></p>
                 </div>
             </div>
         </div>
+        <button class="btn btn-light d-flex justify-content-center aling-items-center mt-5 btn-outline-secondary" id="change-temp">°C / °F</button>
     </main>
 </body>
 </html>
