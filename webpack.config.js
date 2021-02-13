@@ -1,5 +1,5 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -8,7 +8,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, './dist'),
   },
-  plugins: [new htmlWebpackPlugin({filename:'index.html', template: 'src/template.html', title: 'weather App'})],
+  plugins: [new HTMLWebpackPlugin({ filename: 'index.html', template: 'src/template.html', title: 'Weather App' })],
   module: {
     rules: [
       {
@@ -21,7 +21,7 @@ module.exports = {
       },
     ],
   },
-  devServer : {
+  devServer: {
     contentBase: './dist',
   },
 
