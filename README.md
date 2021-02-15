@@ -11,13 +11,12 @@ I built it using Async JS and I'm getting the data using the OpenWeatherMap API.
 - JavaScript
 - Webpack
 
-
 ## Live Demo
 
-[Live Demo Link](https://rawcdn.githack.com/balerum03/weatherAppJS/13dbb0d6827ae3f4432590445c8ffc4cecf856e0/dist/index.html)
-
+[Live Demo Link](https://adanfernandez.me/weatherAppJS/)
 
 ## To get a local copy up and running follow these simple example steps.
+
 - Go to the main page of the repo.
 - Press the "Code" button and get the repo link.
 - Then run `git clone https://github.com/balerum03/weatherAppJS.git` in your console to download the project
